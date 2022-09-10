@@ -6,9 +6,16 @@ import 'dart:convert';
 class CharacterRepository {
   final ApiService _apiService = ApiService();
 
-  Future<List<Character>> getCharactersList() async {
-    final response = await _apiService.getAllCharacters();
+  // could reutilize this method with optional param
+  Future<List<Character>> getCharactersList({int? familyId}) async {
+    var response;
+    if (familyId != null) {
+      response = await _apiService.getCharactersByFamilyId(familyId);
+    } else {
+      response = await _apiService.getAllCharacters();
+    }
     return _getCharactersListFromJson(response.body);
+
   }
 
   Future<Character> getCharacterById(int id) async {
@@ -20,4 +27,5 @@ class CharacterRepository {
     List<dynamic> decodedJson = json.decode(jsonString);
     return decodedJson.map((c) => Character.fromJson(c)).toList();
   }
+
 }

@@ -32,7 +32,7 @@ class CharacterListViewItem extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   Text(character.fullName),
-                  Text(character.family)
+                  Text(character.familyId.toString())
                 ],
               ),
             ),

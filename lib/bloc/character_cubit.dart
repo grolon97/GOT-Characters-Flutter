@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:got_app/bloc/character_state.dart';
-import 'package:got_app/persistence/shared_preferences.dart';
+import 'package:got_app/persistence/character_shared_preferences.dart';
 import 'package:got_app/repositories/character_repository.dart';
 import 'package:got_app/models/character.dart';
 
@@ -11,8 +11,8 @@ class CharacterCubit extends Cubit<CharacterState> {
 
   CharacterCubit(this._repository, this._preferences)
       : super(CharactersInitial()) {
-        _init();
-      }
+    _init();
+  }
 
   // will send states to the bloc provider or builder, this works as an init method
   Future<void> _init() async {
@@ -20,7 +20,7 @@ class CharacterCubit extends Cubit<CharacterState> {
       emit(CharactersLoading());
       // will check for the favourites characters
       list = await _repository.getCharactersList();
-      List<int> favsIDs = _preferences.getFavouritesList();
+      List<int> favsIDs = _preferences.getFavouriteCharacters();
       // filter the favourites in another list
       List<Character> favsList = [];
       for (Character c in list) {
@@ -31,26 +31,14 @@ class CharacterCubit extends Cubit<CharacterState> {
 
       emit(CharactersLoaded(
           allCharacters: list, favCharacters: favsList)); // can be sent empty
-    } catch (e) {
+    } catch (e, stack) {
       emit(CharactersError());
     }
   }
-/*
-  Future<void> getFavouriteCharacters() async {
-    List<Character> allCharacters = await _repository.getCharactersList();
-    List<int> favsList = _preferences.getFavouritesList();
-    List<Character> favCharacters = [];
-    for (Character c in allCharacters) {
-      if (favsList.contains(c.id)) {
-        favCharacters.add(c);
-      }
-    }
-    emit(CharactersLoaded(list: favCharacters));
-  }
-*/
+
 
   Future<void> changeFav(Character character) async {
-    List<int> favsList = _preferences.getFavouritesList();
+    List<int> favsList = _preferences.getFavouriteCharacters();
     List<Character> updatedFavs = state.favCharacters;
     if (favsList.contains(character.id)) {
       favsList.remove(character.id);
@@ -59,16 +47,17 @@ class CharacterCubit extends Cubit<CharacterState> {
       favsList.add(character.id);
       updatedFavs.add(character);
     }
-    _preferences.setFavouritesList(favsList);
+    _preferences.setFavouriteCharacters(favsList);
+
     emit(state.copyWith(
         allCharacters: state.allCharacters, favCharacters: updatedFavs));
   }
 
   bool checkFavourite(Character character) {
-    return _preferences.getFavouritesList().contains(character.id);
+    return _preferences.getFavouriteCharacters().contains(character.id);
   }
 
-  Future<void> getCharactersFilteredByName(String keyword) async {
+  Future<void> filterCharactersByName(String keyword) async {
     if (keyword.isEmpty) {
       // to force a re-rendering
       emit(state.copyWith(allCharacters: list));
@@ -80,5 +69,11 @@ class CharacterCubit extends Cubit<CharacterState> {
 
       emit(state.copyWith(allCharacters: filteredCharacters));
     }
+  }
+
+  Future<void> filterCharactersByFamilyId(int familyId) async {
+    List<Character> filteredCharacters =
+        list.where((character) => character.familyId == familyId).toList();
+    emit(state.copyWith(allCharacters: filteredCharacters));
   }
 }

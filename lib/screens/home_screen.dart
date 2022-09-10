@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:got_app/widgets/favourites_page_view.dart';
+import 'package:got_app/screens/all_families_screen.dart';
 import 'package:got_app/themes/colors.dart' as colors;
 
 class HomeScreen extends StatelessWidget {
@@ -62,7 +63,8 @@ class HomeScreen extends StatelessWidget {
                     )),
                 const Expanded(
                   child: TabBarView(
-                    children: [FavouritesPageView(), Icon(Icons.house_rounded)],
+                    children: [FavouritesPageView(),
+                               AllFamiliesScreen()],
                   ),
                 ),
               ],

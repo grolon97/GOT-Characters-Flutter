@@ -10,7 +10,7 @@ class Character {
     required this.lastName,
     required this.fullName,
     required this.title,
-    required this.family,
+    required this.familyId,
     required this.imageUrl,
   });
   int id;
@@ -18,17 +18,17 @@ class Character {
   String lastName;
   String fullName;
   String title;
-  String family;
+  int familyId;
   String imageUrl;
   
   factory Character.fromJson(Map<String, dynamic> json) => Character(
         id: json["id"],
-        firstName: json["firstName"],
-        lastName: json["lastName"],
-        fullName: json["fullName"],
+        firstName: json["first_name"],
+        lastName: json["last_name"],
+        fullName: json["first_name"] + ' ' + json["last_name"],
         title: json["title"],
-        family: json["family"],
-        imageUrl: json["imageUrl"],
+        familyId: json["family_id"],
+        imageUrl: json["image_url"],
       );
 
       
@@ -38,7 +38,7 @@ class Character {
         "lastName": lastName,
         "fullName": fullName,
         "title": title,
-        "family": family,
+        "familyId": familyId,
         "imageUrl": imageUrl,
       };
 }
