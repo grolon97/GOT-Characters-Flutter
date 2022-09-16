@@ -24,7 +24,7 @@ class FamilyListViewItem extends StatelessWidget {
                       ? const Icon(Icons.favorite_sharp,
                           color: Colors.redAccent)
                       : const Icon(Icons.favorite_border_outlined),
-                  onPressed: () {},
+                  onPressed: null,
                 ))),
             Flexible(
               flex: 4,

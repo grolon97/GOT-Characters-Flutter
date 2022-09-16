@@ -17,14 +17,14 @@ class HomeScreen extends StatelessWidget {
               toolbarHeight: 35,
               flexibleSpace: Container(
                 decoration: const BoxDecoration(
-                  gradient: colors.primaryGradient
+                  // gradient: colors.primaryColor
                 ),
               ),
               bottom: const TabBar(
                 padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
                 tabs: [
                   SizedBox(height: 60, child: Tab(text: 'Characters')),
-                  SizedBox(height: 60, child: Tab(text: 'Houses')),
+                  SizedBox(height: 60, child: Tab(text: 'Families')),
                 ],
               ),
             ),
@@ -35,7 +35,7 @@ class HomeScreen extends StatelessWidget {
                     height: 100,
                     width: double.infinity,
                     decoration: const BoxDecoration(
-                      gradient: colors.primaryGradient,
+                      color: colors.primaryColor
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -50,6 +50,7 @@ class HomeScreen extends StatelessWidget {
                             color: colors.lightColor,
                             boxShadow: [
                               BoxShadow(
+                                  color: Colors.black,
                                   offset: Offset(0, -15),
                                   blurRadius: 20,
                                   spreadRadius: -10,
@@ -61,8 +62,8 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ],
                     )),
-                const Expanded(
-                  child: TabBarView(
+                Expanded(
+                  child: const TabBarView(
                     children: [FavouritesPageView(),
                                AllFamiliesScreen()],
                   ),

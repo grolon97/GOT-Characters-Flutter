@@ -12,7 +12,3 @@ const primaryColor = orangePink;
 const secondaryColor = darkGrey;
 const lightColor = white;
 const textColor = dark;
-const primaryGradient = LinearGradient(
-    begin: Alignment.centerLeft,
-    end: Alignment.centerRight,
-    colors: <Color>[orangePink, orange]);

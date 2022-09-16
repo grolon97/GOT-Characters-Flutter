@@ -21,7 +21,6 @@ class FamilyCharactersScreen extends StatelessWidget {
     CharacterCubit characterCubit = context.read<CharacterCubit>();
     characterCubit.filterCharactersByFamilyId(family.id);
 
-    
     return BlocBuilder<FamilyCubit, FamilyState>(builder: (context, state) {
       return Scaffold(
         appBar: AppBar(
@@ -31,20 +30,18 @@ class FamilyCharactersScreen extends StatelessWidget {
           actions: <Widget>[
             IconButton(
                 icon: familyCubit.checkFavourite(family)
-                      ? const Icon(Icons.favorite_sharp,
-                          color: Colors.redAccent)
-                      : const Icon(Icons.favorite_border_outlined),
+                    ? const Icon(Icons.favorite_sharp, color: Colors.redAccent)
+                    : const Icon(Icons.favorite_border_outlined),
                 tooltip: 'Add to Favorites',
                 // will add the family name to favorites
                 onPressed: () {
-                  String snackBarText =
-                        familyCubit.checkFavourite(family)
-                            ? 'Family removed!'
-                            : 'Family added!';
-                    var snackBar = SnackBar(
-                      content: Text(snackBarText),
-                      duration: const Duration(milliseconds: 600),
-                    );
+                  String snackBarText = familyCubit.checkFavourite(family)
+                      ? 'Family removed!'
+                      : 'Family added!';
+                  var snackBar = SnackBar(
+                    content: Text(snackBarText),
+                    duration: const Duration(milliseconds: 600),
+                  );
                   familyCubit.changeFav(family);
                   ScaffoldMessenger.of(context).showSnackBar(snackBar);
                 })

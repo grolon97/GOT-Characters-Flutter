@@ -37,7 +37,13 @@ var tabBarTheme = const TabBarTheme().copyWith(
     indicatorSize: TabBarIndicatorSize.tab,
     indicator: const BoxDecoration(
       color: colors.lightColor,
-      boxShadow: [BoxShadow(blurRadius: 15, blurStyle: BlurStyle.outer)],
+      boxShadow: [
+        BoxShadow(
+            offset: Offset.zero,
+            color: Colors.black,
+            blurRadius: 15,
+            blurStyle: BlurStyle.outer)
+      ],
       borderRadius: BorderRadius.all(Radius.circular(40)),
       /*gradient: LinearGradient(
         colors: [orangePink, orange],
