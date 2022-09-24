@@ -17,8 +17,8 @@ class HomeScreen extends StatelessWidget {
               toolbarHeight: 35,
               flexibleSpace: Container(
                 decoration: const BoxDecoration(
-                  // gradient: colors.primaryColor
-                ),
+                    // gradient: colors.primaryColor
+                    ),
               ),
               bottom: const TabBar(
                 padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
@@ -31,41 +31,14 @@ class HomeScreen extends StatelessWidget {
             body: Column(
               children: [
                 Container(
-                    padding: const EdgeInsets.symmetric(vertical: 0),
-                    height: 100,
-                    width: double.infinity,
-                    decoration: const BoxDecoration(
-                      color: colors.primaryColor
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(),
-                        Container(
-                          height: 25,
-                          width: double.infinity,
-                          margin: const EdgeInsets.symmetric(vertical: 0),
-                          padding: const EdgeInsets.symmetric(vertical: 0),
-                          decoration: const BoxDecoration(
-                            color: colors.lightColor,
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Colors.black,
-                                  offset: Offset(0, -15),
-                                  blurRadius: 20,
-                                  spreadRadius: -10,
-                                  blurStyle: BlurStyle.normal)
-                            ],
-                            borderRadius:
-                                BorderRadius.vertical(top: Radius.circular(50)),
-                          ),
-                        ),
-                      ],
-                    )),
-                Expanded(
-                  child: const TabBarView(
-                    children: [FavouritesPageView(),
-                               AllFamiliesScreen()],
+                  padding: const EdgeInsets.symmetric(vertical: 0),
+                  height: 100,
+                  width: double.infinity,
+                  decoration: const BoxDecoration(color: colors.primaryColor),
+                ),
+                const Expanded(
+                  child: TabBarView(
+                    children: [FavouritesPageView(), AllFamiliesScreen()],
                   ),
                 ),
               ],

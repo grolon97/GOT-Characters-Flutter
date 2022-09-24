@@ -14,51 +14,48 @@ class CharacterListViewItem extends StatelessWidget {
     CharacterCubit characterCubit = context.read<CharacterCubit>();
     return Container(
       padding: const EdgeInsets.fromLTRB(7.5, 15, 7.5, 15),
-      child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Flexible(
-              flex: 2,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(15),
-                child: SizedBox(
-                    width: 120.0,
-                    height: 105.0,
-                    child: Image.network(character.imageUrl, fit: BoxFit.cover)),
-              ),
-            ),
-            Flexible(
-              flex: 3,
-              child: Column(
-                children: <Widget>[
-                  Text(character.fullName),
-                  Text(character.familyId.toString())
-                ],
-              ),
-            ),
-            Flexible(
-                flex: 1,
-                child: Center(
-                    child: IconButton(
-                  icon: characterCubit.checkFavourite(character)
-                      ? const Icon(Icons.favorite_sharp,
-                          color: Colors.redAccent)
-                      : const Icon(Icons.favorite_border_outlined),
-                  tooltip: 'Add to Favourites',
-                  onPressed: () {
-                    String snackBarText =
-                        characterCubit.checkFavourite(character)
-                            ? 'Favourite removed!'
-                            : 'Favourite added!';
-                    var snackBar = SnackBar(
-                      content: Text(snackBarText),
-                      duration: const Duration(milliseconds: 600),
-                    );
-                    characterCubit.changeFav(character);
-                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                  },
-                ))),
-          ]),
+      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: <
+          Widget>[
+        Flexible(
+          flex: 2,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(15),
+            child: SizedBox(
+                width: 120.0,
+                height: 105.0,
+                child: Image.network(character.imageUrl, fit: BoxFit.cover)),
+          ),
+        ),
+        Flexible(
+          flex: 3,
+          child: Column(
+            children: <Widget>[
+              Text(character.fullName),
+              Text(character.familyName.toString())
+            ],
+          ),
+        ),
+        Flexible(
+            flex: 1,
+            child: Center(
+                child: IconButton(
+              icon: characterCubit.checkFavourite(character)
+                  ? const Icon(Icons.favorite_sharp, color: Colors.redAccent)
+                  : const Icon(Icons.favorite_border_outlined),
+              tooltip: 'Add to Favourites',
+              onPressed: () {
+                String snackBarText = characterCubit.checkFavourite(character)
+                    ? 'Favourite removed!'
+                    : 'Favourite added!';
+                var snackBar = SnackBar(
+                  content: Text(snackBarText),
+                  duration: const Duration(milliseconds: 600),
+                );
+                characterCubit.changeFav(character);
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              },
+            ))),
+      ]),
     );
   }
 }

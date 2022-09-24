@@ -30,7 +30,7 @@ class FamilyCharactersScreen extends StatelessWidget {
           actions: <Widget>[
             IconButton(
                 icon: familyCubit.checkFavourite(family)
-                    ? const Icon(Icons.favorite_sharp, color: Colors.redAccent)
+                    ? const Icon(Icons.favorite_sharp, color: Colors.white)
                     : const Icon(Icons.favorite_border_outlined),
                 tooltip: 'Add to Favorites',
                 // will add the family name to favorites

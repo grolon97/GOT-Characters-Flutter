@@ -59,9 +59,14 @@ var elevatedButtonThemeData = ElevatedButtonThemeData(
         shape:
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))));
 
-const snackBarTheme = SnackBarThemeData(
+var snackBarTheme = SnackBarThemeData(
   backgroundColor: colors.primaryColor,
-  contentTextStyle: TextStyle(color: colors.lightColor),
+  contentTextStyle: const TextStyle(color: colors.lightColor),
+  behavior: SnackBarBehavior.floating,
+  shape: RoundedRectangleBorder(
+    side: const BorderSide(color: Colors.red, width: 1),
+    borderRadius: BorderRadius.circular(24),
+  ),
 );
 
 var headingTextStyle = const TextStyle(

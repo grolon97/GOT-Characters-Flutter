@@ -12,6 +12,7 @@ class Character {
     required this.title,
     required this.familyId,
     required this.imageUrl,
+    this.familyName
   });
   int id;
   String firstName;
@@ -20,6 +21,7 @@ class Character {
   String title;
   int familyId;
   String imageUrl;
+  String? familyName;
   
   factory Character.fromJson(Map<String, dynamic> json) => Character(
         id: json["id"],

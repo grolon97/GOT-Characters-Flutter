@@ -61,9 +61,11 @@ class CharacterDetailsScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(vertical: 20.0),
+                  ),
                   Text(character.fullName, style: theme.headingTextStyle),
-                  Text(character.familyId.toString(),
-                      style: theme.headingTextStyle),
+                  Text(character.familyName.toString()),
                   Container(
                       padding: const EdgeInsets.symmetric(vertical: 20.0),
                       child: ElevatedButton.icon(

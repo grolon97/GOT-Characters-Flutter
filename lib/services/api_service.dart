@@ -10,13 +10,13 @@ import 'package:http/http.dart' as http;
 
 class ApiService {
 
-  static const String _baseUrl = "http://localhost:3000";
+  static const String _baseUrl = "http://192.168.1.12:3000";
   static const Duration defaultTimeout = Duration(seconds: 10);
 
   // generic get method
   Future<dynamic> getAllCharacters() async {
     // should be inside a try/catch block in case errors occurs when reaching the API
-    http.Response response = await http.get(Uri.parse('$_baseUrl/characters')); // .timeout(defaultTimeout);
+    http.Response response = await http.get(Uri.parse('$_baseUrl/characters')).timeout(defaultTimeout);
     return response;
   } 
 
@@ -29,7 +29,7 @@ class ApiService {
     return await http.get(Uri.parse('$_baseUrl/characters?select=family_id')).timeout(defaultTimeout);
   }
 
-  Future<dynamic> getAllFamilies() async {
+  Future<dynamic> getAllFamilies() async { 
     return await http.get(Uri.parse('$_baseUrl/families')).timeout(defaultTimeout);
   }
 
