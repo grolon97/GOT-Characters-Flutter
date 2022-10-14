@@ -25,7 +25,6 @@ class AllFamiliesScreen extends StatelessWidget {
       }
 
       if (state is FamiliesError) {
-        print('FAMILIES ERROR');
         return Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
