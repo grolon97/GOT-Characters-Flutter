@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:got_app/models/character.dart';
+
+import '../models/character.dart';
 
 class CharacterState extends Equatable {
   final List<Character> allCharacters;

@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:got_app/models/family.dart';
+
+import '../models/family.dart';
 
 class FamilyState extends Equatable {
   final List<Family> allFamilies;

@@ -1,23 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:got_app/bloc/character_cubit.dart';
-import 'package:got_app/bloc/character_state.dart';
-import 'package:got_app/widgets/character_list_view_item.dart';
-import 'package:got_app/widgets/characters_list_widget.dart';
-import 'package:got_app/widgets/error_message.dart';
-import 'package:got_app/widgets/loading_message.dart';
-import 'package:got_app/themes/colors.dart' as colors;
+
+import '../bloc/character_cubit.dart';
+import '../widgets/characters_list_widget.dart';
+import '../themes/colors.dart' as colors;
 
 class AllCharactersScreen extends StatelessWidget {
   const AllCharactersScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // Init cubit with default values
     CharacterCubit characterCubit = context.read<CharacterCubit>();
     characterCubit.filterCharactersByName('');
     var _textFieldController = TextEditingController();
-
 
     return Scaffold(
         appBar: AppBar(
@@ -45,7 +40,6 @@ class AllCharactersScreen extends StatelessWidget {
                           },
                         ),
                         hintText: 'Search...',
-                        // border: InputBorder.none,
                       )),
                 ),
               ),

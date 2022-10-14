@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:got_app/bloc/character_cubit.dart';
-import 'package:got_app/bloc/family_cubit.dart';
-import 'package:got_app/bloc/family_state.dart';
-import 'package:got_app/themes/colors.dart' as colors;
-import 'package:got_app/widgets/characters_list_widget.dart';
-import 'package:got_app/widgets/loading_message.dart';
-import 'package:got_app/widgets/error_message.dart';
-import 'package:got_app/models/family.dart';
+
+import '../bloc/character_cubit.dart';
+import '../bloc/family_cubit.dart';
+import '../bloc/family_state.dart';
+import '../themes/colors.dart' as colors;
+import '../widgets/characters_list_widget.dart';
+import '../models/family.dart';
 
 class FamilyCharactersScreen extends StatelessWidget {
   const FamilyCharactersScreen({Key? key}) : super(key: key);
@@ -25,7 +24,6 @@ class FamilyCharactersScreen extends StatelessWidget {
       return Scaffold(
         appBar: AppBar(
           backgroundColor: colors.primaryColor,
-          // here will go the name of the house
           title: Text(family.name),
           actions: <Widget>[
             IconButton(
@@ -33,7 +31,6 @@ class FamilyCharactersScreen extends StatelessWidget {
                     ? const Icon(Icons.favorite_sharp, color: Colors.white)
                     : const Icon(Icons.favorite_border_outlined),
                 tooltip: 'Add to Favorites',
-                // will add the family name to favorites
                 onPressed: () {
                   String snackBarText = familyCubit.checkFavourite(family)
                       ? 'Family removed!'
@@ -42,7 +39,9 @@ class FamilyCharactersScreen extends StatelessWidget {
                     content: Text(snackBarText),
                     duration: const Duration(milliseconds: 600),
                   );
-                  familyCubit.changeFav(family);
+                  familyCubit.checkFavourite(family)
+                      ? familyCubit.removeFav(family)
+                      : familyCubit.addFav(family);
                   ScaffoldMessenger.of(context).showSnackBar(snackBar);
                 })
           ],

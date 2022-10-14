@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:got_app/bloc/character_state.dart';
-import 'package:got_app/widgets/character_list_view_item.dart';
-import 'package:got_app/widgets/error_message.dart';
-import 'package:got_app/widgets/loading_message.dart';
+import '../bloc/character_state.dart';
+import '../widgets/character_list_view_item.dart';
+import '../widgets/error_message.dart';
+import '../widgets/loading_message.dart';
 import '../bloc/character_cubit.dart';
 
 class CharactersList extends StatelessWidget {

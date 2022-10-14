@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:got_app/models/character.dart';
-import 'package:got_app/themes/app_theme.dart' as theme;
+import '../models/character.dart';
+import '../themes/app_theme.dart' as theme;
 
 class CharacterPage extends StatelessWidget {
   const CharacterPage({Key? key, required this.character}) : super(key: key);

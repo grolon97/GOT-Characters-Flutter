@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:got_app/themes/colors.dart' as colors;
+import '../themes/colors.dart' as colors;
 
 // Padding, Margin and Positioning...
 const DEFAULT_PADDING = 16.0;

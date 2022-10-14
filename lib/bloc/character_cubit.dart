@@ -1,8 +1,9 @@
 import 'package:bloc/bloc.dart';
-import 'package:got_app/bloc/character_state.dart';
-import 'package:got_app/persistence/character_shared_preferences.dart';
-import 'package:got_app/repositories/character_repository.dart';
-import 'package:got_app/models/character.dart';
+
+import '../models/character.dart';
+import '../bloc/character_state.dart';
+import '../persistence/character_shared_preferences.dart';
+import '../repositories/character_repository.dart';
 
 class CharacterCubit extends Cubit<CharacterState> {
   final CharacterRepository _repository;
@@ -16,6 +17,7 @@ class CharacterCubit extends Cubit<CharacterState> {
 
   // will send states to the bloc provider or builder, this works as an init method
   Future<void> _init() async {
+
     try {
       emit(CharactersLoading());
       // will check for the favourites characters
@@ -30,8 +32,8 @@ class CharacterCubit extends Cubit<CharacterState> {
       }
 
       emit(CharactersLoaded(
-          allCharacters: list, favCharacters: favsList)); // can be sent empty
-    } catch (e, stack) {
+          allCharacters: list, favCharacters: favsList));
+    } catch (e) {
       emit(CharactersError());
     }
   }

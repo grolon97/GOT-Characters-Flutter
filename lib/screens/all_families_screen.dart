@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:got_app/bloc/family_cubit.dart';
-import 'package:got_app/bloc/family_state.dart';
-import 'package:got_app/widgets/family_list_view_item.dart';
-import 'package:got_app/widgets/loading_message.dart';
 
-import 'package:got_app/widgets/error_message.dart';
+import '../bloc/family_cubit.dart';
+import '../bloc/family_state.dart';
+import '../widgets/family_list_view_item.dart';
+import '../widgets/loading_message.dart';
+import '../widgets/error_message.dart';
 
 class AllFamiliesScreen extends StatelessWidget {
   const AllFamiliesScreen({Key? key}) : super(key: key);
@@ -13,6 +13,7 @@ class AllFamiliesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<FamilyCubit, FamilyState>(builder: (context, state) {
+      
       if (state is FamiliesLoading) {
         return Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -24,6 +25,7 @@ class AllFamiliesScreen extends StatelessWidget {
       }
 
       if (state is FamiliesError) {
+        print('FAMILIES ERROR');
         return Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -44,7 +46,7 @@ class AllFamiliesScreen extends StatelessWidget {
         );
       }
 
-      return const Text('Houses List');
+      return const Text('Families List');
     });
   }
 }

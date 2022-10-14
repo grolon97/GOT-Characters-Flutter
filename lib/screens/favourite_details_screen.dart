@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:got_app/bloc/character_cubit.dart';
-import 'package:got_app/models/character.dart';
-import 'package:got_app/bloc/character_state.dart';
-import 'package:got_app/themes/app_theme.dart' as theme;
+
+import '../bloc/character_cubit.dart';
+import '../models/character.dart';
+import '../bloc/character_state.dart';
+import '../themes/app_theme.dart' as theme;
 
 class CharacterDetailsScreen extends StatelessWidget {
   const CharacterDetailsScreen({Key? key}) : super(key: key);
@@ -21,15 +22,14 @@ class CharacterDetailsScreen extends StatelessWidget {
 
         return Scaffold(
           body: SafeArea(
-            child: SizedBox.expand(
               // wrapper widget so the child can use it's whole width
+            child: SizedBox.expand(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Hero(
                     tag: 'dash',
                     child: Material(
-                      // just a hack, should investigate why this wrap is necessary
                       child: Stack(
                         children: <Widget>[
                           ClipRRect(
@@ -39,7 +39,7 @@ class CharacterDetailsScreen extends StatelessWidget {
                             child: Image.network(character.imageUrl,
                                 alignment: Alignment.center,
                                 width: double.infinity,
-                                height: 400, // fixed height
+                                height: 400,
                                 fit: BoxFit.fitWidth),
                           ),
                           IconButton(

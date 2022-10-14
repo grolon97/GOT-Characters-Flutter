@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:got_app/models/family.dart';
-import 'package:got_app/bloc/family_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../models/family.dart';
+import '../bloc/family_cubit.dart';
 
 class FamilyListViewItem extends StatelessWidget {
   final Family family;

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:got_app/bloc/character_cubit.dart';
-import 'package:got_app/bloc/character_state.dart';
-import 'package:got_app/widgets/character_page.dart';
-import 'package:got_app/widgets/add_character_page.dart';
-import 'package:got_app/widgets/error_message.dart';
-import 'package:got_app/widgets/loading_message.dart';
+
+import '../bloc/character_cubit.dart';
+import '../bloc/character_state.dart';
+import '../widgets/character_page.dart';
+import '../widgets/add_character_page.dart';
+import '../widgets/error_message.dart';
+import '../widgets/loading_message.dart';
 
 class FavouritesPageView extends StatelessWidget {
   const FavouritesPageView({Key? key}) : super(key: key);
@@ -52,7 +53,6 @@ class FavouritesPageView extends StatelessWidget {
           );
         } else {
           return PageView(controller: controller, children: const [
-            // can be a widget that shows an item and an image
             AddCharacterPage(),
           ]);
         }
