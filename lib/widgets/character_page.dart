@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import '../routes.dart';
 import '../models/character.dart';
 import '../themes/app_theme.dart' as theme;
 
@@ -20,7 +22,7 @@ class CharacterPage extends StatelessWidget {
                     tag: 'dash',
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, 'FAVOURITE_DETAILS',
+                        Navigator.pushNamed(context, Routes.favCharacters,
                             arguments: character);
                       },
                       child: ClipRRect(

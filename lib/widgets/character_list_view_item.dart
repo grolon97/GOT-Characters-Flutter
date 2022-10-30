@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:got_app/models/character.dart';
-import 'package:got_app/bloc/character_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../models/character.dart';
+import '../bloc/character_cubit.dart';
 
 class CharacterListViewItem extends StatelessWidget {
   final Character character;

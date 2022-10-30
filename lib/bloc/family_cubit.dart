@@ -28,7 +28,7 @@ class FamilyCubit extends Cubit<FamilyState> {
       emit(FamiliesLoaded(
           allFamilies: list, favFamilies: favFamilies)); // can be sent empty
     } catch (e, stack) {
-      print('error:  ${e.toString()} StackTrace: ${stack.toString()} ');
+      // print('error:  ${e.toString()} StackTrace: ${stack.toString()} ');
       emit(FamiliesError());
     }
   }

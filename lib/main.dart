@@ -39,29 +39,26 @@ class MyApp extends StatelessWidget {
               CharacterRepository(), CharacterSharedPreferences()),
         ),
         BlocProvider<FamilyCubit>(
-          create: (context) =>
-              FamilyCubit(FamilyRepository()),
+          create: (context) => FamilyCubit(FamilyRepository()),
         ),
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
           title: _title,
           theme: AppTheme.lightTheme,
-          routes: routes,
+          onGenerateRoute: routes,
           home: SafeArea(
               child: Scaffold(
             body: FutureBuilder<FirebaseApp>(
                 future: _fbApp,
                 builder: (context, AsyncSnapshot<FirebaseApp> snapshot) {
                   if (snapshot.hasError) {
-                    return const Text("Error");
+                    return const Text("An error has ocurred");
                   } else if (snapshot.hasData) {
                     // the future has been resolved and Firebase has been properly initialized
-                    DatabaseReference _testRef =
-                        FirebaseDatabase.instance.ref().child("favFamilies");
                     return const HomeScreen();
                   } else if (!snapshot.hasData) {
-                    return const Text("No Data");
+                    return const Text("Couldn't connect to the server. Please restart the application");
                   }
                   return const LoadingMessage(
                       message: "Connecting to Server...");

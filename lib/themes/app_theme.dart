@@ -6,10 +6,7 @@ const DEFAULT_PADDING = 16.0;
 const DEFAULT_MARGIN = 16.0;
 const DEFAULT_BORDER_RADIUS = 5.0;
 
-// Text Styles
-// const DEFAULT
 
-// pendiente de completarse para que modifique totalmente el look and feel de la aplicación
 class AppTheme {
   static ThemeData get lightTheme {
     return ThemeData().copyWith(

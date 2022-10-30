@@ -1,10 +1,9 @@
 import 'package:http/http.dart' as http;
 
-
 class ApiService {
 
-  static const String _baseUrl = "http://myipaddress:3000";
-  static const Duration defaultTimeout = Duration(seconds: 10);
+  static const String _baseUrl = "http://192.168.1.12:3000";
+  static const Duration defaultTimeout = Duration(seconds: 15);
 
 
   Future<dynamic> getAllCharacters() async {

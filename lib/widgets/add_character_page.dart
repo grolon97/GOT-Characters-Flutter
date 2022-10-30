@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../routes.dart';
+
 class AddCharacterPage extends StatelessWidget {
   const AddCharacterPage({Key? key}) : super(key: key);
 
@@ -19,7 +21,7 @@ class AddCharacterPage extends StatelessWidget {
                   icon: const Icon(Icons.add, color: Colors.grey, size: 36.0),
                   padding: const EdgeInsets.only(bottom: 10),
                   onPressed: () {
-                    Navigator.pushNamed(context, 'ALL_CHARACTERS');
+                    Navigator.pushNamed(context, Routes.characters);
                   }),
               const Text('Add Character', style: TextStyle(color: Colors.grey)),
             ],

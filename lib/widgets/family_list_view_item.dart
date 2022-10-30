@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../routes.dart';
 import '../models/family.dart';
 import '../bloc/family_cubit.dart';
 
@@ -34,7 +35,7 @@ class FamilyListViewItem extends StatelessWidget {
                   child: GestureDetector(
                     child: Text(family.name),
                     onTap: () {
-                      Navigator.pushNamed(context, 'FAMILY_CHARACTERS',
+                      Navigator.pushNamed(context, Routes.familyDetails,
                           arguments: family);
                     },
                   )),
